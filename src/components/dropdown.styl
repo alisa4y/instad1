@@ -1,0 +1,28 @@
+ul.dropdown
+  width 100%
+  height 100%
+
+  & > li:nth-child(n+1)
+    margin-top 20px
+
+  & > li > div.head
+    display flex
+    align-items center
+    justify-content space-between
+    width 100%
+    padding 0 15px
+    border-bottom 1px solid grey
+
+    & > .icon.open
+      transform rotate(180deg)
+
+    & > .icon
+      width 1em
+      transition all 0.2s ease
+
+  & > li > .body
+    padding 0
+    margin 0 15px
+    background #B8FFC788
+    overflow hidden
+    transition all 0.2s ease

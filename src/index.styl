@@ -1,0 +1,88 @@
+@import "./assets/animations"
+
+*
+  margin 0
+  padding 0
+  box-sizing border-box
+  list-style-type none
+
+body
+  direction rtl
+  font Inter
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+
+h2
+  font-size 1.3em
+
+p
+  margin 15px 0
+
+code
+  font-family source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace
+
+.page > .body
+  position absolute
+
+.report
+  padding 15px 0 0
+  display grid
+  grid-template-columns 2fr 1.5fr 2fr 1.5fr
+  align-items center
+
+  & > li
+    // width max-content
+    padding 5px 0
+    padding-right 10px
+
+  & > li:nth-child(4n+3)
+    padding-right 15px
+    border-right 1px solid grey
+
+  & > li:nth-child(2n)
+    // width min-content
+    padding-right 30px
+
+  for num in 5 .. 8
+    & > li:nth-child(8n+{num})
+      background hsla(0, 0%, 76%, 0.7)
+
+gridBorder(cols)
+  & > div
+    padding 15px
+    border-left 1px solid grey
+
+  & > div:nth-last-child(n+{cols + 1})
+    border-bottom 1px solid grey
+
+  & > div:nth-child({cols}n+{cols})
+    border-left 0
+
+.codes-prices > .content
+  display grid
+  grid-template-columns 1fr 5fr 1fr
+  place-items stretch
+  gridBorder(4)
+
+.cc
+  display flex
+  flex-direction column
+  justify-content center
+
+.codes-prices > .content >
+  for i in 1 .. 3
+    .cc:nth-child({4 * i}) Button
+      anime(animationNames[i - 1])
+
+.g3 > .content
+  display grid
+  grid-template-columns 1fr 1fr 1fr
+  justify-items center
+  gridBorder(3)
+
+  & > div
+    width 100%
+    text-align center
+
+.faq .body > div
+  padding 15px

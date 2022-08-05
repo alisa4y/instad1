@@ -1,0 +1,92 @@
+inputColor = #00C7D5
+
+.progressItem
+  position relative
+  z-index 1
+  display flex
+  justify-content space-between
+  align-items center
+  padding 2px 0px
+  border-bottom 1px solid black
+  overflow hidden
+
+  & .icon:first-child
+    width 11vw
+    padding 0
+
+  & .icon:last-child
+    transform scaleX(-1)
+
+  &.finished
+    opacity 0.25
+
+    & > .progress
+      border-radius 0
+      background grey
+
+  &:nth-child(2n)
+    background-color hsla(203, 30%, 46%, 0.1)
+
+  & > .progress
+    position absolute
+    z-index -1
+    height 100%
+    border-radius 50% / 100%
+    border-top-right-radius 0
+    border-bottom-right-radius 0
+    border-bottom-left-radius 0
+    background-color hsl(140deg 100% 50%)
+    opacity 0.35
+
+ul.botProgress
+  overflow visible
+
+  > :last-child
+    position absolute
+    z-index 1
+    left 25px
+    width 1.5em
+    height 1.5em
+    font-size 2em
+    transform translateY(-0.2em)
+
+.paper.bot
+  & > .content
+    padding 0
+    font-size 1.1em
+
+.popupPage > .botConfig
+  width 98vw
+
+  & .bot-settings
+    padding 10px
+    padding-bottom 4em
+
+.botConfig > .dropdown
+  padding 0
+
+  & .body
+    margin 0
+    background hsla(0, 0%, 99%, 0.911)
+    box-shadow inset 0px 4px 4px -1px rgba(0, 0, 0, 0.25)
+
+.play-btn
+  position absolute
+  top 0
+  left 2em
+  border-radius 100%
+  padding 0.5em
+  width 2.5em
+  height 2.5em
+  transform scaleX(-1) translateY(-3em)
+  background-color white
+  outline solid 1px inputColor
+  box-shadow -1px 1px 6px 1px darken(inputColor, 60%)
+
+  path
+    transform translateX(10%)
+    fill darken(inputColor, 30%) !important
+
+.bot-name
+  text-align center
+  padding 1em 0 0.5em

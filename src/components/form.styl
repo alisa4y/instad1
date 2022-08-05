@@ -1,0 +1,228 @@
+inputColor = #00C7D5
+
+.input-text
+  position relative
+  z-index 3
+  width 100%
+  height 2em
+  margin-top 3em
+
+  // padding 2em 0 0
+  & .icon
+    // position absolute
+    z-index 2
+    right 0
+    top 0
+    padding 0
+    margin 0 5px
+    transform scaleX(-1)
+
+  & > label
+    min-width max-content
+    transform translateX(-2em)
+    transition all 0.2s ease-in-out
+
+  & > label.value
+    transform translate(-0.3em, -2em)
+
+  & > *
+    position absolute
+    z-index 3
+    right 1%
+    bottom 0
+
+  & > input[type="text"]
+    width 98%
+    height 1px
+    padding 0 0.5em
+    border 0
+    outline 0
+    transition height 0.2s ease-in-out
+    color white
+    background inputColor
+
+  &::after
+    content ""
+    position absolute
+    z-index 4
+    bottom 0
+    width 100%
+    height 1px
+    background darken(inputColor, 60%)
+    transform translate(0.5%)
+
+input[type="range"]
+  direction ltr
+
+.button
+  width 59px
+  height 33px
+  border 0
+  color white
+  background inputColor
+
+.slider
+  position relative
+  margin 2em 0 3em
+  touch-action none
+
+  .rs-line, .rs-line::after
+    width calc(100% - 2 * 3em)
+    height 1px
+    margin 4em auto 1em
+
+  .rs-line::after
+    content ""
+    position absolute
+    background darken(inputColor, 30%)
+    bottom 0
+    transform translateY(1.75em)
+
+  .rs-min, .rs-max
+    position absolute
+    bottom 0.5em
+    transform translateY(100%)
+    color inputColor
+
+  .rs-min
+    left 0
+
+  .rs-max
+    right 0
+
+  .rs-bullet
+    z-index 5
+    background inputColor
+    border-radius 100%
+    width 1.5em
+    height 1.5em
+
+    div
+      position absolute
+      top 50%
+      left 50%
+      border 1px solid inputColor
+      border-radius 100%
+      padding 1em
+      transform translate(-50%, -150%)
+
+.label
+  font-size 1.2em
+
+.label .icon
+  position absolute
+  transform translateY(-50%) scaleX(-1)
+  padding 0.5em
+
+.tip
+  position absolute
+  right 50%
+  transform translateX(50%)
+  z-index 6
+  border-radius 20px
+  padding 1em
+  width 90vw
+  max-width max-content
+  background lighten(inputColor, 80%)
+  font-size 0.9em
+  opacity 0
+  visibility hidden
+  transition all 0.2s ease-in-out
+
+.tip.show, .tip.error
+  opacity 1
+  visibility visible
+
+.tip.error
+  padding 0.5em
+  background rgb(255, 228, 228)
+  color red
+  border 1px solid red
+
+.text
+  position relative
+  padding 2em 0
+
+  textarea
+    border 1px solid darken(inputColor, 30%)
+    width 100%
+    height 4em
+
+.date
+  position relative
+  padding-bottom 2em
+
+  .label
+    padding-bottom 1em
+
+  label
+    padding 0.2em 1em 0.2em
+
+  input
+    border 1px solid darken(inputColor, 30%)
+
+.dualSlider
+  position relative
+  padding-bottom 2em
+
+  .container
+    display flex
+
+  .input-text
+    width 40vw
+
+.add-btn
+  position relative
+  border 1px solid inputColor
+  border-radius 100%
+  width 5vw
+  height 5vw
+  background white
+  box-shadow -1px 1px 6px 1px darken(inputColor, 60%)
+
+  div
+    position absolute
+    top 50%
+    left 50%
+    transform translate(-50%, -50%)
+    color darken(inputColor, 30%)
+
+.checkbox
+  position relative
+  padding 2em 0
+  display flex
+  justify-content space-between
+  align-items center
+
+  input
+    display none
+
+  label
+    padding 0.2em 1em 0
+
+  .container
+    position relative
+    z-index 6
+    border 1px solid inputColor
+    border-radius 50px
+    width 10vw
+    height 1.5em
+    overflow hidden
+
+    .bullet
+      position absolute
+      z-index 5
+      left 0
+      top 50%
+      transform translateY(-50%)
+      border-radius 100%
+      width @height
+      height @height
+      background lighten(inputColor, 95%)
+      box-shadow inset 0 0 3px 1px #c1c1c1
+      transition all 0.2s ease-in-out
+
+  input:checked ~ .container > .bullet
+    left calc(100% - 1.5em)
+    background inputColor
+    box-shadow 0 0 4px 1px darken(inputColor, 30%)

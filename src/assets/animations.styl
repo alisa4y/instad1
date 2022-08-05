@@ -1,0 +1,20 @@
+animationNames = bronzeShadow silverShadow goldShadow
+
+anime(name)
+  animation name 1.5s ease-in-out infinite alternate
+
+create-keyFrames(color, blur = 4px, spread = 4px)
+  from
+    box-shadow 0 0 1px 1px lighten(color, 20%)
+
+  to
+    box-shadow 0 0 blur spread color
+
+@keyframes bronzeShadow
+  create-keyFrames(#CD7F32)
+
+@keyframes silverShadow
+  create-keyFrames(silver, 5px, 7px)
+
+@keyframes goldShadow
+  create-keyFrames(gold, 6px, 8px)
